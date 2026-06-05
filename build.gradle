@@ -9,12 +9,12 @@ application {
 
 java {
     toolchain {
-        languageVersion = JavaLanguageVersion.of(21)
+        languageVersion = JavaLanguageVersion.of(11)
     }
 }
 
 run {
-    args '-m data/HIVMutationPatternsPI.csv -d ProteaseInhibitor -r data/protease_reference.fasta'.split(" ")
+    args '-m data/HIVMutationPatternsPI.csv -d ProteaseInhibitor -r data/protease_reference.fasta -p data/protease_sequences.fasta'.split(" ")
 }
 
 group 'org.htw.prog2'

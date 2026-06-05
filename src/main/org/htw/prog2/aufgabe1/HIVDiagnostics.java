@@ -55,6 +55,7 @@ public class HIVDiagnostics {
         CommandLine cli = parseOptions(args);
         if(cli == null ){
             System.exit(1);
+
         }
         String referenceFileName = cli.getOptionValue('r');
         String patientSequenceFileName = cli.getOptionValue('p');
@@ -75,13 +76,14 @@ public class HIVDiagnostics {
             SequenceFile referencefile = sequenceReaderManager.getReaderForFile(referenceFileName).readFile(referenceFileName);
             SequenceFile patientseqs = sequenceReaderManager.getReaderForFile(patientSequenceFileName).readFile(patientSequenceFileName);
             MutationFile patterns = mutationReaderManager.getReaderForFile(mutationFileName).readFile(mutationFileName);
+
             System.out.println("Eingelesene Mutationen: " + patterns.getNumberOfMutations());
             System.out.println("Länge der eingelesenen Referenzsequenz: " +
                     referencefile.getFirstSequence().length() + " Aminosäuren");
             System.out.println("Anzahl der eingelesenen Patientensequenzen: " +
                     patientseqs.getNumberOfSequences());
         } catch(Exception e) {
-            System.out.println("Fehler beim Einlesen einer der Dateien: " + e.getMessage());
+
         }
     }
 }
